@@ -2,24 +2,24 @@ import React from 'react';
 
 class AddForm extends React.Component {
     render() {
-        return(<div>
-            <h1>Add Smurf</h1>
+        return(<section>
+            <h2>Add Smurf</h2>
             <form>
-                <div class="form-group">
-                    <label for="name">Name:</label><br/>
+                <div className="form-group">
+                    <label htmlFor="name">Name:</label><br/>
                     <input name="name" id="name" />
                 </div>
-                <div class="form-group">
-                    <label for="name">Nickname:</label><br/>
+                <div className="form-group">
+                    <label htmlFor="name">Nickname:</label><br/>
                     <input name="name" id="name" />
                 </div>
-                <div class="form-group">
-                    <label for="name">Description:</label><br/>
-                    <textArea name="name" id="name" />
+                <div className="form-group">
+                    <label htmlFor="name">Description:</label><br/>
+                    <textarea name="name" id="name" />
                 </div>
                 <input type="submit" />
             </form>
-        </div>);
+        </section>);
     }
 }
 

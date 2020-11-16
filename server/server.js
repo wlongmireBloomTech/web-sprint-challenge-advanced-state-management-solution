@@ -14,10 +14,25 @@ const sendUserError = (msg, res) => {
 
 let smurfs = [
   {
-    name: 'Brainey',
-    age: 200,
-    height: '5cm',
-    id: 0
+    id:1,
+    name:'Poppa Smurf',
+    position:'Village Leader',
+    nickname: 'Pops',
+    description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
+  },
+  {
+    id:2,
+    name:'Poppa Smurf',
+    position:'Village Leader',
+    nickname: 'Pops',
+    description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
+  },
+  {
+    id:3,
+    name:'Poppa Smurf',
+    position:'Village Leader',
+    nickname: 'Pops',
+    description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
   }
 ];
 server.get('/smurfs', (req, res) => {

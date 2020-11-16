@@ -1,8 +1,18 @@
 .App {
-  width: 50%;
+  width: 65%;
   margin: 2em auto;
 }
 
 input, textarea {
   width:100%;
+}
+
+section {
+  margin: 1em;
+  padding: 1em;
+}
+
+.card-title {
+  margin:0;
+  padding:0;
 }
