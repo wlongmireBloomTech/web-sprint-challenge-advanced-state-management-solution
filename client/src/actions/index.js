@@ -13,12 +13,18 @@ export const fetchSmurfs = () => dispatch => {
             dispatch({type:END_API_CALL_SUCCESS, payload:res.data});
         })
         .catch(err=>{
-            dispatchEvent({type:END_API_CALL_ERROR, payload:err})
+            dispatch({type:END_API_CALL_ERROR, payload:err});
         })
 }
 
-export const addSmurf = ()=> {
-
+export const addSmurf = (smurf) => dispatch => {
+    axios.post('http://localhost:3333/smurfs', smurf)
+        .then(res=>{
+            dispatch({type:ADD_SMURF, payload:{...smurf, id:Date.now() }});
+        })
+        .catch(err=>{
+            console.log(err);
+        });
 }
 
 export const setErrorText = ()=> {

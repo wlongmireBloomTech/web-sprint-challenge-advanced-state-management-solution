@@ -26,6 +26,11 @@ const reducer = (state= intitalState, action)=>{
                 isLoading: false,
                 errorText: action.payload
             });
+        case(ADD_SMURF):
+            return({
+                ...state,
+                smurfs:[...state.smurfs, action.payload]
+            });
         case(SET_ERROR_TEXT):
             return({
                 ...state,
