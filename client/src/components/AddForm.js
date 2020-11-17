@@ -20,6 +20,12 @@ class AddForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.addSmurf(this.state);
+        this.setState({
+            name:"",
+            position:"",
+            nickname:"",
+            description:""
+        })
     }
 
     render() {
@@ -42,10 +48,18 @@ class AddForm extends React.Component {
                     <label htmlFor="name">Description:</label><br/>
                     <textarea onChange={this.handleChange} value={this.state.description} name="description" id="description" />
                 </div>
+                {
+                    this.props.errorText && <div class="alert alert-danger" role="alert">Error: {this.props.errorText}</div>
+                }
                 <input type="submit" />
             </form>
         </section>);
     }
 }
+const mapStateToProps = state => {
+    return({
+        errorText: state.errorText
+    });
+}
 
-export default connect(null, { addSmurf })(AddForm);
+export default connect(mapStateToProps, { addSmurf })(AddForm);

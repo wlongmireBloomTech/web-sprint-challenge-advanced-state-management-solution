@@ -1,4 +1,4 @@
-.App {
+main {
   width: 65%;
   margin: 2em auto;
 }
@@ -10,6 +10,10 @@ input, textarea {
 section {
   margin: 1em;
   padding: 1em;
+}
+
+.card {
+  height: 100%;
 }
 
 .card-title {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { START_API_CALL, END_API_CALL_SUCCESS, END_API_CALL_ERROR, ADD_SMURF, SET_ERROR_TEXT}  from './../actions';
 
 const intitalState = {

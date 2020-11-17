@@ -13,20 +13,25 @@ export const fetchSmurfs = () => dispatch => {
             dispatch({type:END_API_CALL_SUCCESS, payload:res.data});
         })
         .catch(err=>{
-            dispatch({type:END_API_CALL_ERROR, payload:err});
+            console.log(err);
         })
 }
 
 export const addSmurf = (smurf) => dispatch => {
+    if (!smurf.name || !smurf.nickname || !smurf.position) {
+        dispatch({type: SET_ERROR_TEXT, payload:"Name, Position and Nickname are required fields"});
+    }
+
     axios.post('http://localhost:3333/smurfs', smurf)
         .then(res=>{
             dispatch({type:ADD_SMURF, payload:{...smurf, id:Date.now() }});
+            setErrorText("");
         })
         .catch(err=>{
             console.log(err);
         });
 }
 
-export const setErrorText = ()=> {
-
+export const setErrorText = (err) => {
+    return({type:SET_ERROR_TEXT, payload:err});
 }
