@@ -15,7 +15,7 @@ class SmurfDisplay extends React.Component {
 
         return(<section>
             {
-                (!isLoading)?(<div className="d-flex flex-lg-row flex-column">
+                (!isLoading)?(<div className="display">
                     {
                         this.props.smurfs.map((smurf)=>{
                             return(<div key={smurf.id} >

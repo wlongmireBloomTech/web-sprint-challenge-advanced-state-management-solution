@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <nav class="navbar navbar-dark bg-primary">
-          <a class="navbar-brand" href="#">Smurf Repository</a>
+          <a class="navbar-brand">Smurf Repository</a>
         </nav>
         <main>
           <SmurfDisplay />
