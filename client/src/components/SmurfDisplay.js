@@ -2,10 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchSmurfs } from './../actions';
-
 import Smurf from './Smurf';
 
-class SmurfDisplay extends React.Component {
+export class SmurfDisplay extends React.Component {
     componentDidMount() {
         this.props.fetchSmurfs();
     }
