@@ -13,7 +13,9 @@ export const fetchSmurfs = () => dispatch => {
             dispatch({type:END_API_CALL_SUCCESS, payload:res.data});
         })
         .catch(err=>{
-            console.log(err);
+            //TODO: Add error on END_API_CALL_SUCCESS
+            console.log(err.message);
+            console.log(Object.keys(err));
         })
 }
 
