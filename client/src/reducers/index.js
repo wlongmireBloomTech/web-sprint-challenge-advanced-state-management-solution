@@ -1,12 +1,12 @@
 import { START_API_CALL, END_API_CALL_SUCCESS, ADD_SMURF, SET_ERROR_TEXT}  from './../actions';
 
-const intitalState = {
+export const initialState = {
     errorText:"",
     isLoading: false,
     smurfs:[]
 }
 
-const reducer = (state= intitalState, action)=>{
+const reducer = (state= initialState, action)=>{
     switch(action.type) {
         case(START_API_CALL):
             return({

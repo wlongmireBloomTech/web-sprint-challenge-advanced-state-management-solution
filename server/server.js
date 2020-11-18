@@ -35,6 +35,7 @@ let smurfs = [
     description: 'Brainy is the village intellectual who\'s not afraid to share his "wisdom" with his fellow Smurfs, even though it usually results in his being booted to the village limits or whacked in the head with a mallet.'
   }
 ];
+
 server.get('/smurfs', (req, res) => {
   res.json(smurfs);
 });

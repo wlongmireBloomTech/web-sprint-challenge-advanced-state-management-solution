@@ -6,17 +6,18 @@ import Smurf from './Smurf';
 
 export class SmurfDisplay extends React.Component {
     componentDidMount() {
-        this.props.fetchSmurfs();
+        // this.props.fetchSmurfs();
     }
 
     render() {
-        const { isLoading } = this.props;
+        const { isLoading, smurfs } = this.props;
+        console.log('props: ', this.props);
 
         return(<section>
             {
                 (!isLoading)?(<div className="display">
                     {
-                        this.props.smurfs.map((smurf)=>{
+                        smurfs.map((smurf)=>{
                             return(<div key={smurf.id} >
                                 <Smurf smurf={smurf}/>
                             </div>)
@@ -31,7 +32,7 @@ export class SmurfDisplay extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        smurfs: state.smurfs,
+        smurfs:state.smurfs,
         isLoading: state.isLoading
     }
 }

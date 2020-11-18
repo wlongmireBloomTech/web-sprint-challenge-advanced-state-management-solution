@@ -1,28 +1,28 @@
 import { rest } from 'msw';
 
 let smurfs = [
-    {
-      id:1,
-      name:'Poppa Smurf',
-      position:'Village Leader',
-      nickname: 'Pops',
-      description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
-    },
-    {
-      id:2,
-      name:'Poppa Smurf',
-      position:'Village Leader',
-      nickname: 'Pops',
-      description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
-    },
-    {
-      id:3,
-      name:'Poppa Smurf',
-      position:'Village Leader',
-      nickname: 'Pops',
-      description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
-    }
-  ];
+  {
+    id:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",
+    name:'Poppa Smurf',
+    position:'Village Leader',
+    nickname: 'Pops',
+    description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
+  },
+  {
+    id:"JzdWIiOiIxMjM0NTY3ODkwIiwibmFtZ",
+    name:'Smurfette',
+    position:'Beautician',
+    nickname: 'Smurfette',
+    description: 'Smurfette\'s role in the village is that of any other smurf; chores, and helping out where she can, but for her specifically, she is often seen to be very active in organizing events.'
+  },
+  {
+    id:"G4gRG9lIiwiaWF0IjoxNTE2MjM5MDIy",
+    name:'Brainy Smurf',
+    position:'Lab Assistant',
+    nickname: 'Brainy',
+    description: 'Brainy is the village intellectual who\'s not afraid to share his "wisdom" with his fellow Smurfs, even though it usually results in his being booted to the village limits or whacked in the head with a mallet.'
+  }
+];
 
 export const handlers = [
     rest.get('http://localhost:3333/smurfs', (req, res, ctx) => {
@@ -37,7 +37,7 @@ export const handlers = [
       const newSmurf = { name, position, nickname, description, id: smurfId };
       if (!name || !position || !nickname) {
         return sendUserError(
-          'Ya gone did smurfed! Name/Age/Height are all required to create a smurf in the smurf DB.',
+          'Name, position and nickname fields are required.',
           res
         );
       }
@@ -46,7 +46,7 @@ export const handlers = [
       };
       if (smurfs.find(findSmurfByName)) {
         return sendUserError(
-          `Ya gone did smurfed! ${name} already exists in the smurf DB.`,
+          `${name} already exists in the smurf DB.`,
           res
         );
       }
