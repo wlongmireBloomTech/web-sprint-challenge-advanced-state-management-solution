@@ -6,15 +6,14 @@ export const END_API_CALL_ERROR = 'END_API_CALL_ERROR';
 export const ADD_SMURF = 'ADD_SMURF';
 export const SET_ERROR_TEXT = 'SET_ERROR_TEXT';
 
-export const fetchSmurfs = () => {//dispatch => {
+export const fetchSmurfs = () => dispatch => {
     
-    // dispatch({type:START_API_CALL});
+    dispatch({type:START_API_CALL});
     axios.get('http://localhost:3333/smurfs')
         .then(res=>{
             dispatch({type:END_API_CALL_SUCCESS, payload:res.data});
         })
         .catch(err=>{
-            //TODO: Add error on END_API_CALL_SUCCESS
             console.log(Object.keys(err));
         })
 }
