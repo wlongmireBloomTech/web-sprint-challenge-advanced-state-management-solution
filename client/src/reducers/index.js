@@ -1,4 +1,4 @@
-import { START_API_CALL, END_API_CALL_SUCCESS, END_API_CALL_ERROR, ADD_SMURF, SET_ERROR_TEXT}  from './../actions';
+import { START_API_CALL, END_API_CALL_SUCCESS, ADD_SMURF, SET_ERROR_TEXT}  from './../actions';
 
 const intitalState = {
     errorText:"",
@@ -19,12 +19,6 @@ const reducer = (state= intitalState, action)=>{
                 isLoading: false,
                 smurfs: action.payload
             });
-        case(END_API_CALL_ERROR):
-            return({
-                ...state,
-                isLoading: false,
-                errorText: action.payload
-            });
         case(ADD_SMURF):
             return({
                 ...state,
@@ -33,6 +27,7 @@ const reducer = (state= intitalState, action)=>{
         case(SET_ERROR_TEXT):
             return({
                 ...state,
+                isLoading: false,
                 errorText:action.payload
             });
         default:

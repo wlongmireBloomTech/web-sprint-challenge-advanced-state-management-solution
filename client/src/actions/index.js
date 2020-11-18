@@ -12,9 +12,10 @@ export const fetchSmurfs = () => dispatch => {
     axios.get('http://localhost:3333/smurfs')
         .then(res=>{
             dispatch({type:END_API_CALL_SUCCESS, payload:res.data});
+            dispatch(setErrorText(""));
         })
-        .catch(err=>{
-            console.log(Object.keys(err));
+        .catch(err=> {
+            dispatch(setErrorText(err.response.data.Error));
         })
 }
 
@@ -26,10 +27,10 @@ export const addSmurf = (smurf) => dispatch => {
     axios.post('http://localhost:3333/smurfs', smurf)
         .then(res=>{
             dispatch({type:ADD_SMURF, payload:{...smurf, id:Date.now() }});
-            setErrorText("");
+            dispatch(setErrorText(""));
         })
         .catch(err=>{
-            console.log(err);
+            dispatch(setErrorText(err.response.data.Error));
         });
 }
 

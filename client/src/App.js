@@ -10,8 +10,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav class="navbar navbar-dark bg-primary">
-          <a class="navbar-brand">Smurf Repository</a>
+        <nav className="navbar navbar-dark bg-primary">
+          <a className="navbar-brand">Smurf Repository</a>
         </nav>
         <main>
           <SmurfDisplay />
