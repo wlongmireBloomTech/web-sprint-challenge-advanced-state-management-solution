@@ -49,7 +49,7 @@ class AddForm extends React.Component {
                     <textarea onChange={this.handleChange} value={this.state.description} name="description" id="description" />
                 </div>
                 {
-                    this.props.errorText && <div className="alert alert-danger" role="alert">Error: {this.props.errorText}</div>
+                    this.props.errorText && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {this.props.errorText}</div>
                 }
                 <button>Submit Smurf</button>
             </form>

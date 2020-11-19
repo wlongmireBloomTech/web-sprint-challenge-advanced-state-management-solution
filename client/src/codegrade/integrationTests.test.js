@@ -1,5 +1,5 @@
 import React from 'react';
-import { render as rtlRender, screen, fireEvent } from '@testing-library/react';
+import { render as rtlRender, screen, fireEvent, within } from '@testing-library/react';
 import { waitFor } from '@testing-library/user-event';
 
 import App from './../App';
@@ -52,23 +52,38 @@ test('App loads intitial data and displays them correctly', async ()=> {
     expect(smurfs).toHaveLength(3);
 })
 
-test('App returns a validation error when name not included', async ()=> {
-    
+test('App returns a validation error when name not included', async ()=> { 
     await runForm('', 'worker', 's3', 'description');
-    const error = screen.findByText(/Error: Name, position and nickname fields are required./i);
-    expect(error).not.toBeNull();
+    const error = await screen.findByTestId('errorAlert');
+    
+    const nicknameTest = within(error).queryByText(/name/i);
+    const errorTest = within(error).queryByText(/error/i);
+
+    expect(nicknameTest).not.toBeNull();
+    expect(errorTest).not.toBeNull();
 });
 
 test('App returns a validation error when position not included', async ()=> {
     await runForm('smurf 3', '', 's3', 'description');
-    const error = screen.findByText(/Error: Name, position and nickname fields are required./i);
-    expect(error).not.toBeNull();
+    const error = await screen.findByTestId('errorAlert');
+
+    const nicknameTest = within(error).queryByText(/position/i);
+    const errorTest = within(error).queryByText(/error/i);
+
+    expect(nicknameTest).not.toBeNull();
+    expect(errorTest).not.toBeNull();
 });
 
 test('App returns a validation error when nickname not included', async ()=> {
+
     await runForm('smurf 3', 'worker', '', 'description');
-    const error = screen.findByText(/Error: Name, position and nickname fields are required./i);
-    expect(error).not.toBeNull();
+    const error = await screen.findByTestId('errorAlert');
+    
+    const nicknameTest = within(error).queryByText(/nickname/i);
+    const errorTest = within(error).queryByText(/error/i);
+
+    expect(nicknameTest).not.toBeNull();
+    expect(errorTest).not.toBeNull();
 });
 
 test('App returns a smurf when all values are submitted', async ()=> {
