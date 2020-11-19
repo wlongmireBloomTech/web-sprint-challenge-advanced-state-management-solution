@@ -51,7 +51,7 @@ class AddForm extends React.Component {
                 {
                     this.props.errorText && <div className="alert alert-danger" role="alert">Error: {this.props.errorText}</div>
                 }
-                <input type="submit" />
+                <button>Submit Smurf</button>
             </form>
         </section>);
     }

@@ -23,7 +23,7 @@ export const addSmurf = (smurf) => dispatch => {
     if (!smurf.name || !smurf.nickname || !smurf.position) {
         dispatch({type: SET_ERROR_TEXT, payload:"Name, Position and Nickname are required fields"});
     }
-
+    
     axios.post('http://localhost:3333/smurfs', smurf)
         .then(res=>{
             dispatch({type:ADD_SMURF, payload:{...smurf, id:Date.now() }});
