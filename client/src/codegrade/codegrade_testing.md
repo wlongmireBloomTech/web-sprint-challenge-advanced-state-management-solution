@@ -7,4 +7,5 @@
 5. When a form is submitted and the name is missing, an error alert appears.
 6. When a form is submitted and the position is missing, an error alert appears.
 6. When a form is submitted and the nickname is missing, an error alert appears.
-7. When a form is submitted with an already existing item name, an error alert appears.
+7. When a form is submitted and a non-unique smurf name is provided, an error alert appears.
+8. When a form is submitted with an already existing item name, an error alert appears.

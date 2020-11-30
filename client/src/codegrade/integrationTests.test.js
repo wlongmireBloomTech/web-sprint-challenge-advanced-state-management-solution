@@ -12,9 +12,7 @@ import thunk from 'redux-thunk';
 import reducer from './../reducers';
 import { initialState } from './../reducers';
 
-
 const reduxRender = (ui, initState) => {
-    
     const store = createStore(reducer, initState, applyMiddleware(thunk));
 
     function Wrapper({ children }) {
@@ -86,14 +84,27 @@ test('App returns a validation error when nickname not included', async ()=> {
     expect(errorTest).not.toBeNull();
 });
 
+test('App returns a validation error when nickname not included', async ()=> {
+
+    await runForm('Poppa Smurf', 'worker', 's3', 'description');
+    const error = await screen.findByTestId('errorAlert');
+    
+    const nicknameTest = within(error).queryByText(/already exists/i);
+    const errorTest = within(error).queryByText(/error/i);
+
+    expect(nicknameTest).not.toBeNull();
+    expect(errorTest).not.toBeNull();
+});
+
+
 test('App returns a smurf when all values are submitted', async ()=> {
-    await runForm('smurf 3', 'worker', 's3', 'description');
+    await runForm('smurf 5', 'worker', 's3', 'description');
     const smurf = screen.findByText(/smurf 3/i);
     expect(smurf).not.toBeNull();
 });
 
 test('App returns a smurf when all values but description are submitted', async ()=> {
-    await runForm('smurf 4', 'worker', 's3', '');
+    await runForm('smurf 6', 'worker', 's3', '');
     const smurf = screen.findByText(/smurf 4/i);
     expect(smurf).not.toBeNull();
 });
