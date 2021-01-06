@@ -2,15 +2,15 @@ import React from 'react';
 import { render as rtlRender, screen, fireEvent, within } from '@testing-library/react';
 import { waitFor } from '@testing-library/user-event';
 
-import App from './../App';
+import App from '../App';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 
-import reducer from './../reducers';
-import { initialState } from './../reducers';
+import reducer from '../reducers';
+import { initialState } from '../reducers';
 
 const reduxRender = (ui, initState) => {
     const store = createStore(reducer, initState, applyMiddleware(thunk));
