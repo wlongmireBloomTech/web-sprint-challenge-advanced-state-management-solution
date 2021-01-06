@@ -40,71 +40,76 @@ const runForm = async (name, position, nickname, description='') => {
     fireEvent.click(button);
 }
 
-test('App renders without errors', async ()=> {
-    reduxRender(<App/>, initialState);
-});
-
-test('App loads intitial data and displays them correctly', async ()=> {
-    reduxRender(<App/>, initialState);
-    const smurfs = await screen.findAllByTestId("smurf");
-    expect(smurfs).toHaveLength(3);
-})
-
-test('App returns a validation error when name not included', async ()=> { 
-    await runForm('', 'worker', 's3', 'description');
-    const error = await screen.findByTestId('errorAlert');
+describe("Basic Application Functioning", ()=>{
+    test('App renders without errors', async ()=> {
+        reduxRender(<App/>, initialState);
+    });
     
-    const nicknameTest = within(error).queryByText(/name/i);
-    const errorTest = within(error).queryByText(/error/i);
-
-    expect(nicknameTest).not.toBeNull();
-    expect(errorTest).not.toBeNull();
+    test('App loads intitial data and displays them correctly', async ()=> {
+        reduxRender(<App/>, initialState);
+        const smurfs = await screen.findAllByTestId("smurf");
+        expect(smurfs).toHaveLength(3);
+    });
 });
 
-test('App returns a validation error when position not included', async ()=> {
-    await runForm('smurf 3', '', 's3', 'description');
-    const error = await screen.findByTestId('errorAlert');
-
-    const nicknameTest = within(error).queryByText(/position/i);
-    const errorTest = within(error).queryByText(/error/i);
-
-    expect(nicknameTest).not.toBeNull();
-    expect(errorTest).not.toBeNull();
-});
-
-test('App returns a validation error when nickname not included', async ()=> {
-
-    await runForm('smurf 3', 'worker', '', 'description');
-    const error = await screen.findByTestId('errorAlert');
+describe("Validation Testing", ()=>{
+    test('App returns a validation error when name not included', async ()=> { 
+        await runForm('', 'worker', 's3', 'description');
+        const error = await screen.findByTestId('errorAlert');
+        
+        const nicknameTest = within(error).queryByText(/name/i);
+        const errorTest = within(error).queryByText(/error/i);
     
-    const nicknameTest = within(error).queryByText(/nickname/i);
-    const errorTest = within(error).queryByText(/error/i);
-
-    expect(nicknameTest).not.toBeNull();
-    expect(errorTest).not.toBeNull();
-});
-
-test('App returns a validation error when nickname not included', async ()=> {
-
-    await runForm('Poppa Smurf', 'worker', 's3', 'description');
-    const error = await screen.findByTestId('errorAlert');
+        expect(nicknameTest).not.toBeNull();
+        expect(errorTest).not.toBeNull();
+    });
     
-    const nicknameTest = within(error).queryByText(/already exists/i);
-    const errorTest = within(error).queryByText(/error/i);
-
-    expect(nicknameTest).not.toBeNull();
-    expect(errorTest).not.toBeNull();
+    test('App returns a validation error when position not included', async ()=> {
+        await runForm('smurf 3', '', 's3', 'description');
+        const error = await screen.findByTestId('errorAlert');
+    
+        const nicknameTest = within(error).queryByText(/position/i);
+        const errorTest = within(error).queryByText(/error/i);
+    
+        expect(nicknameTest).not.toBeNull();
+        expect(errorTest).not.toBeNull();
+    });
+    
+    test('App returns a validation error when nickname not included', async ()=> {
+    
+        await runForm('smurf 3', 'worker', '', 'description');
+        const error = await screen.findByTestId('errorAlert');
+        
+        const nicknameTest = within(error).queryByText(/nickname/i);
+        const errorTest = within(error).queryByText(/error/i);
+    
+        expect(nicknameTest).not.toBeNull();
+        expect(errorTest).not.toBeNull();
+    });
+    
+    test('App returns a validation error when nickname not included', async ()=> {
+    
+        await runForm('Poppa Smurf', 'worker', 's3', 'description');
+        const error = await screen.findByTestId('errorAlert');
+        
+        const nicknameTest = within(error).queryByText(/already exists/i);
+        const errorTest = within(error).queryByText(/error/i);
+    
+        expect(nicknameTest).not.toBeNull();
+        expect(errorTest).not.toBeNull();
+    });    
 });
 
-
-test('App returns a smurf when all values are submitted', async ()=> {
-    await runForm('smurf 5', 'worker', 's3', 'description');
-    const smurf = screen.findByText(/smurf 3/i);
-    expect(smurf).not.toBeNull();
-});
-
-test('App returns a smurf when all values but description are submitted', async ()=> {
-    await runForm('smurf 6', 'worker', 's3', '');
-    const smurf = screen.findByText(/smurf 4/i);
-    expect(smurf).not.toBeNull();
+describe("Form Submission", () => {
+    test('App returns a smurf when all values are submitted', async ()=> {
+        await runForm('smurf 5', 'worker', 's3', 'description');
+        const smurf = screen.findByText(/smurf 3/i);
+        expect(smurf).not.toBeNull();
+    });
+    
+    test('App returns a smurf when all values but description are submitted', async ()=> {
+        await runForm('smurf 6', 'worker', 's3', '');
+        const smurf = screen.findByText(/smurf 4/i);
+        expect(smurf).not.toBeNull();
+    });
 });
