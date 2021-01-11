@@ -77,7 +77,7 @@ export const handlers = [
       const { id } = req.params;
       const { name, age, height } = req.body;
       const findSmurfById = smurf => {
-        return smurf.id == id;
+        return smurf.id === id;
       };
       const foundSmurf = smurfs.find(findSmurfById);
       if (!foundSmurf) {
@@ -96,11 +96,10 @@ export const handlers = [
 
     rest.delete('http://localhost:3333/smurfs/:id', (req, res, ctx) => {
       const { id } = req.params;
-      const foundSmurf = smurfs.find(smurf => smurf.id == id);
+      const foundSmurf = smurfs.find(smurf => smurf.id === id);
     
       if (foundSmurf) {
-        const SmurfRemoved = { ...foundSmurf };
-        smurfs = smurfs.filter(smurf => smurf.id != id);
+        smurfs = smurfs.filter(smurf => smurf.id !== id);
         return res(
           ctx.status(200),
           ctx.json(smurfs)
