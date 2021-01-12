@@ -2,9 +2,9 @@
 set -euo pipefail
 shopt -s extglob
 
-rm -rf "$STUDENT/client/src/codegrade" || true
-mkdir "$STUDENT/client/src/codegrade"
-mv "$FIXTURES/package.json" "$STUDENT/client"
-mv "$FIXTURES/setupTests.json" "$STUDENT/client/src/"
-mv "$FIXTURES/tests.test.js" "$STUDENT/client/src/codegrade"
-mv "$FIXTURES/{jest.config.js, package.json}" "$STUDENT/client"
+rm -rf "$STUDENT/src/codegrade" || true
+mkdir "$STUDENT/src/codegrade"
+mv "$FIXTURES/setupTests.js" "$STUDENT/src";
+mv "$FIXTURES/package.json" "$STUDENT"
+mv "$FIXTURES/tests.test.js" "$STUDENT/src/codegrade"
+mv "$FIXTURES/{jest.config.js, package.json}" "$STUDENT"
