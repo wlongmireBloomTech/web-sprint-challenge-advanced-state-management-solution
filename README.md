@@ -50,7 +50,7 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 
 #### Resource: API documentation 
 
-##### GET '/smurfs'
+##### GET 'http://localhost:3333/smurfs'
 
 - [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
 - [ ] Double check that your response from the server is an array of smurfs.
@@ -67,7 +67,7 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 ];
 ```
 
-##### POST '/smurfs'
+##### POST 'http://localhost:3333/smurfs'
 
 - [ ] Design the functionality to add a smurf to the Smurf DB you'll need all five fields. `name`, `position`, and `nickname`, `description`.
 
