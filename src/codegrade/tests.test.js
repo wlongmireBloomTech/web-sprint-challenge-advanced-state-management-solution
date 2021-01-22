@@ -26,7 +26,7 @@ const runForm = async (name, position, nickname, description='') => {
     reduxRender(<App/>, initialState);
     await screen.findAllByTestId("smurf");
 
-    const nameInput = screen.getByLabelText(/name:/i);
+    const nameInput = screen.getByLabelText(/^name:/i);
     const positionInput = screen.getByLabelText(/position:/i);
     const nicknameInput = screen.getByLabelText(/nickname:/i);
     const descriptionInput = screen.getByLabelText(/description:/i);

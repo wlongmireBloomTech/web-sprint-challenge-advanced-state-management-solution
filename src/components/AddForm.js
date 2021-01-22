@@ -41,11 +41,11 @@ class AddForm extends React.Component {
                     <input onChange={this.handleChange} value={this.state.position} name="position" id="position" />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="name">Nickname:</label><br/>
+                    <label htmlFor="nickname">Nickname:</label><br/>
                     <input onChange={this.handleChange} value={this.state.nickname} name="nickname" id="nickname" />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="name">Description:</label><br/>
+                    <label htmlFor="description">Description:</label><br/>
                     <textarea onChange={this.handleChange} value={this.state.description} name="description" id="description" />
                 </div>
                 {
