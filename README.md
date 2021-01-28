@@ -18,24 +18,15 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
 
 Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your team lead as the evaluate your solution.
 
-## Interview Questions
-
-Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
-
-1. What problem does the context API help solve?
-2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-3. What is the difference between Application state and Component state? When would be a good time to use one over the other?
-4. Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
-5. What is your favorite state management system you've learned and this sprint? Please explain why!
-
-You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
-
 ## Instructions
 
 ### Task 1: Project Set Up
 
-- [ ] `fork & clone` this repository.
-- [ ] `cd` into the forked copy of this repository.
+- [ ] Create a forked copy of this project
+- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
+- [ ] Push commits: git push origin `<firstName-lastName>`
 
 **Setting up the CodeGrade webhook**
 
@@ -50,9 +41,9 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 
 #### Resource: API documentation 
 
-##### GET 'http://localhost:3333/smurfs'
+##### GET '/smurfs'
 
-- [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `/smurfs`.
+- [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `http:/localhost:3333/smurfs`.
 - [ ] Double check that your response from the server is an array of smurfs.
 
 ```js
@@ -67,7 +58,7 @@ Go [here](./CodeGrade-webhook.md) to setup the CodeGrade webhook before you begi
 ];
 ```
 
-##### POST 'http://localhost:3333/smurfs'
+##### POST '/smurfs'
 
 - [ ] Design the functionality to add a smurf to the Smurf DB you'll need all five fields. `name`, `position`, and `nickname`, `description`.
 
@@ -146,6 +137,7 @@ After finishing your required elements, you can push your work further. These go
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
-- [ ] Add your team lead as a reviewer on the pull-request
-- [ ] Your team lead will count the project as complete after receiving your pull-request
+- [ ] Ensure that your projects are complete on your <firstName-lastName> branch.
+- [ ] Merge your <firstName-lastName> branch into your main branch.
+- [ ] Push your main branch to github and check that it is registers within codegrade.
+- [ ] Check your personal feedback the following Monday. For more information check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-Student-facing-c5147cee220c4044a25de28bcb6bb54a)
