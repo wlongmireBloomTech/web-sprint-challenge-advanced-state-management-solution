@@ -11,6 +11,9 @@ export class SmurfDisplay extends React.Component {
 
     render() {
         const { isLoading, smurfs } = this.props;
+
+
+        
         return(<section className="display">
             {
                 (!isLoading)?(<div>
