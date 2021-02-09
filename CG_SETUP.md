@@ -26,11 +26,14 @@ cg-react-scripts install
 npm i && setup.bash
 ```
 
-### Programs to test
+### Rubrics
+### Client MVP Rubic
+> **Category Name:** Client MVP
+> **Category Description:** Base tests for project client code.
+> **Max Points:** 10
 
-#### Checking student code to grade compliance with project specifications
-
-**Category Rubric:** Student Implementation MVP
+## AutoGrade Levels
+**Category Rubric:** Client MVP
 **Category Step:** Unit Test
 **Category Name:** Student Implementation MVP
 **Weight:** 1
