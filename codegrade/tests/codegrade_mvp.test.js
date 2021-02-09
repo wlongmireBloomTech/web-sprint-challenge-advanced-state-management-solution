@@ -1,6 +1,5 @@
 import React from 'react';
 import { render as rtlRender, screen, fireEvent, within } from '@testing-library/react';
-import { waitFor } from '@testing-library/user-event';
 
 import App from '../App';
 
@@ -40,7 +39,7 @@ const runForm = async (name, position, nickname, description='') => {
     fireEvent.click(button);
 }
 
-describe("Basic Application Functioning", ()=>{
+describe("Basic Application Functioning:", ()=>{
     test('App renders without errors', async ()=> {
         reduxRender(<App/>, initialState);
     });
@@ -48,11 +47,11 @@ describe("Basic Application Functioning", ()=>{
     test('App loads intitial data and displays them correctly', async ()=> {
         reduxRender(<App/>, initialState);
         const smurfs = await screen.findAllByTestId("smurf");
-        expect(smurfs).toHaveLength(3);
+        expect(smurfs).toHaveLength(2);
     });
 });
 
-describe("Validation Testing", ()=>{
+describe("Validation Testing:", ()=>{
     test('App returns a validation error when name not included', async ()=> { 
         await runForm('', 'worker', 's3', 'description');
         const error = await screen.findByTestId('errorAlert');
@@ -100,7 +99,7 @@ describe("Validation Testing", ()=>{
     });    
 });
 
-describe("Form Submission", () => {
+describe("Form Submission:", () => {
     test('App returns a smurf when all values are submitted', async ()=> {
         await runForm('smurf 5', 'worker', 's3', 'description');
         const smurf = screen.findByText(/smurf 3/i);
