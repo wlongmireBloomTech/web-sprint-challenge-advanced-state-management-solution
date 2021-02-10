@@ -1,4 +1,5 @@
 import React from 'react';
+import MutationObserver from 'mutationobserver-shim';
 import { render as rtlRender, screen, fireEvent, within } from '@testing-library/react';
 
 import App from '../App';
