@@ -1,12 +1,19 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import AddForm from './components/AddForm';
-import SmurfDisplay from './components/SmurfDisplay';
+import SmurfList from './components/SmurfList';
+
+import { fetchSmurfs } from './actions';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchSmurfs();
+  }
+
   render() {
     return (
       <div className="App">
@@ -14,7 +21,7 @@ class App extends Component {
           <a href="#" className="navbar-brand">Smurf Village Database</a>
         </nav>
         <main>
-          <SmurfDisplay />
+          <SmurfList />
           <AddForm />
         </main>
       </div>
@@ -22,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(null, { fetchSmurfs })(App);
