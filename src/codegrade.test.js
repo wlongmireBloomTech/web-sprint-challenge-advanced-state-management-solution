@@ -2,15 +2,15 @@ import React from 'react';
 import MutationObserver from 'mutationobserver-shim';
 import { render as rtlRender, screen, fireEvent, within } from '@testing-library/react';
 
-import App from '../App';
+import App from './App';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
 
-import reducer from '../reducers';
-import { initialState } from '../reducers';
+import reducer from './reducers';
+import { initialState } from './reducers';
 
 const reduxRender = (ui, initState) => {
     const store = createStore(reducer, initState, applyMiddleware(thunk));
@@ -52,52 +52,10 @@ describe("Basic Application Functioning:", ()=>{
     });
 });
 
-describe("Validation Testing:", ()=>{
-    test('App returns a validation error when name not included', async ()=> { 
-        await runForm('', 'worker', 's3', 'description');
-        const error = await screen.findByTestId('errorAlert');
-        
-        const nicknameTest = within(error).queryByText(/name/i);
-        const errorTest = within(error).queryByText(/error/i);
-    
-        expect(nicknameTest).not.toBeNull();
-        expect(errorTest).not.toBeNull();
-    });
-    
-    test('App returns a validation error when position not included', async ()=> {
-        await runForm('smurf 3', '', 's3', 'description');
-        const error = await screen.findByTestId('errorAlert');
-    
-        const nicknameTest = within(error).queryByText(/position/i);
-        const errorTest = within(error).queryByText(/error/i);
-    
-        expect(nicknameTest).not.toBeNull();
-        expect(errorTest).not.toBeNull();
-    });
-    
-    test('App returns a validation error when nickname not included', async ()=> {
-    
-        await runForm('smurf 3', 'worker', '', 'description');
-        const error = await screen.findByTestId('errorAlert');
-        
-        const nicknameTest = within(error).queryByText(/nickname/i);
-        const errorTest = within(error).queryByText(/error/i);
-    
-        expect(nicknameTest).not.toBeNull();
-        expect(errorTest).not.toBeNull();
-    });
-});
-
 describe("Form Submission:", () => {
     test('App returns a smurf when all values are submitted', async ()=> {
         await runForm('smurf 5', 'worker', 's3', 'description');
         const smurf = screen.findByText(/smurf 3/i);
-        expect(smurf).not.toBeNull();
-    });
-    
-    test('App returns a smurf when all values but description are submitted', async ()=> {
-        await runForm('smurf 6', 'worker', 's3', '');
-        const smurf = screen.findByText(/smurf 4/i);
         expect(smurf).not.toBeNull();
     });
 });
