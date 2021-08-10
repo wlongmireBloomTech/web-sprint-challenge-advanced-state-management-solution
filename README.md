@@ -6,6 +6,8 @@ This challenge allows you to practice the concepts and techniques learned over t
 
 In your challenge this week, you will demonstrate your mastery of these skills by creating the **Smurf Village Database**!
 
+This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
+
 This is an individual assessment. All work must be your own. All projects will be submitted to codegrade for automated review. You will also be given feedback by code reviewers the Monday after challenge submissions. For more information on the review process [click here.](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 
 You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support by dropping a :wave: in your help channel when needed.
@@ -18,24 +20,14 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
 
 ## Instructions
 
-### Task 1: Project Setup
-
-* [ ] Fork and clone this repository.
-* [ ] Create a new working branch: git checkout -b `<firstName-lastName>`.
-* [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-* [ ] Push commits: git push origin `<firstName-lastName>`.
-* [ ] **RUN** `npm install` to install your dependencies.
-* [ ] **RUN** `npm start` to start your application.
-
-### Task 2: CodeGrade Setup
-
-* [ ] Open the assignment in Canvas and following along with the attached document [here.](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374).
-* [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
-* [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
-* [ ] Check to see that Codegrade has accepted your git submission.
-
-### Task 3: Project Requirements
-
+### Task 1: Transfer Repo
+* Clone this repository.
+* Implement the project on your newly created <firstName-lastName> branch, committing changes regularly.
+* Push commits: git push origin <firstName-lastName>.
+* RUN npm install to install your dependencies.
+* RUN npm start to start your application.
+ 
+### Task 2: Project Requirements
  Your finished project must include all of the following requirements. **Unlike other projects, the local server used here can not be accessed through the browser. It is started automatically and without the need for starting a server.js file. Feel free to ignore any messages related to MSW or mock service workers. For this and the rest of your sprint challenges, test the functioning of the server directly through your axios calls.**
 
 #### reducers/index.js
@@ -47,10 +39,10 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
       - a string indicating a possible error message
 
   * [ ] Add in the arguments needed to complete a standard reducer function.
-  * [ ] Add in a reducer case to accomidate the start of a smurf fetch.
-  * [ ] Add in a reducer case to accomidate the successful smurf api fetch.
-  * [ ] Add in a reducer cases to accomidate the failed smurf api fetch.
-  * [ ] Add in a reducer case to accomidate adding a smurf (including the name, nickname, position, summary and an internally generated id) into your smurf list.
+  * [ ] Add in a reducer case to accommodate the start of a smurf fetch.
+  * [ ] Add in a reducer case to accommodate the successful smurf api fetch.
+  * [ ] Add in a reducer cases to accommodate the failed smurf api fetch.
+  * [ ] Add in a reducer case to accommodate adding a smurf (including the name, nickname, position, description and an internally generated id) into your smurf list.
   * [ ] Add in a reducer case that adds in a value to the error message.
 
 #### index.js
@@ -60,7 +52,7 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
   Add in the action creators and action constants needed to add a smurf to state and fetch smurfs from the server. **If at all possible, add in action cases one at a time, instead of all at once. Test your state connects and reducer cases as nessisary.**
 
   * [ ] Add a thunk action called fetchSmurfs that triggers a loading status display in our application, performs an axios call to retreive smurfs from our server, saves the result of that call to our state and shows an error if one is made.
-  * [ ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary)
+  * [ ] Add a standard action that allows us to add new smurf (including the name, nickname, position, summary).
   * [ ] Add a standard action that allows us to set the value of the error message slice of state.
   
 #### App.js
@@ -112,7 +104,7 @@ In this challenge, you are to build a Smurfs village database utilizing Redux as
 
 ##### GET '/smurfs'
 
-- [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `http:/localhost:3333/smurfs`.
+- [ ] Retrieve an array all the Smurfs in the Smurf DB by writing a `GET` to the endpoint `http://localhost:3333/smurfs`.
 - [ ] Double check that your response from the server is an array of smurfs.
 
 ```js
@@ -151,13 +143,13 @@ Example of object created in Smurf DB:
   }
 ];
 ```
-
+ 
 ## Submission format
+
 * [ ] Submit via Codegrade by commiting and pushing any new changes.
 * [ ] Check codegrade for automated feedback.
 * [ ] Check codegrade on Monday following the Sprint Challenge for reviewer feedback. For more information on how to access and read your feedback, check [here](https://www.notion.so/lambdaschool/How-to-View-Feedback-in-CodeGrade-c5147cee220c4044a25de28bcb6bb54a)
 * [ ] Any changes pushed to your <firstName-lastName> branch will resubmited to codegrade if pushed before the sprint challenge deadline. Changes after the deadline will not be reviewed.
-
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
